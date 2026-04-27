@@ -21,7 +21,7 @@ class MedicalAI:
             print("📚 Using default medical knowledge base")
         
     def _load_knowledge_base(self) -> Dict:
-        """Load medical knowledge base"""
+        """Load comprehensive medical knowledge base"""
         return {
             "headache": {
                 "symptoms": ["headache", "migraine", "head pain", "throbbing head"],
@@ -113,34 +113,340 @@ class MedicalAI:
                     "Extreme fatigue interfering with daily life"
                 ],
                 "disclaimer": "Chronic fatigue may indicate underlying medical conditions."
+            },
+            "chest_pain": {
+                "symptoms": ["chest pain", "chest tightness", "chest discomfort", "heart pain"],
+                "causes": ["heart attack", "angina", "heartburn", "anxiety", "muscle strain"],
+                "remedies": [
+                    "Call emergency services immediately",
+                    "Chew aspirin if available (if not allergic)",
+                    "Sit down and rest",
+                    "Loosen tight clothing",
+                    "Stay calm"
+                ],
+                "warning_signs": [
+                    "Severe chest pain or pressure",
+                    "Pain spreading to arm, jaw, or back",
+                    "Chest pain with shortness of breath",
+                    "Chest pain with sweating or nausea"
+                ],
+                "disclaimer": "Chest pain can be life-threatening - seek immediate emergency care."
+            },
+            "breathing_difficulty": {
+                "symptoms": ["shortness of breath", "difficulty breathing", "wheezing", "can't breathe"],
+                "causes": ["asthma", "copd", "pneumonia", "anxiety", "heart failure"],
+                "remedies": [
+                    "Sit upright and lean forward",
+                    "Use prescribed inhaler if available",
+                    "Practice breathing exercises",
+                    "Remove triggers (allergens, smoke)",
+                    "Stay calm"
+                ],
+                "warning_signs": [
+                    "Severe shortness of breath",
+                    "Blue lips or face",
+                    "Chest pain with breathing difficulty",
+                    "Confusion or extreme drowsiness"
+                ],
+                "disclaimer": "Breathing difficulties require immediate medical attention."
+            },
+            "diabetes": {
+                "symptoms": ["diabetes", "high blood sugar", "thirsty", "frequent urination"],
+                "causes": ["insulin resistance", "autoimmune", "genetics", "lifestyle"],
+                "remedies": [
+                    "Monitor blood sugar regularly",
+                    "Take medications as prescribed",
+                    "Follow diabetic diet",
+                    "Exercise regularly",
+                    "Maintain healthy weight"
+                ],
+                "warning_signs": [
+                    "Very high blood sugar readings",
+                    "Fruity-smelling breath",
+                    "Extreme thirst and urination",
+                    "Confusion or loss of consciousness"
+                ],
+                "disclaimer": "Diabetes requires ongoing medical management."
+            },
+            "hypertension": {
+                "symptoms": ["high blood pressure", "hypertension", "elevated blood pressure"],
+                "causes": ["genetics", "obesity", "stress", "high sodium intake", "lack of exercise"],
+                "remedies": [
+                    "Reduce sodium intake",
+                    "Exercise regularly",
+                    "Maintain healthy weight",
+                    "Limit alcohol",
+                    "Take blood pressure medications"
+                ],
+                "warning_signs": [
+                    "Blood pressure above 180/120",
+                    "Severe headache",
+                    "Chest pain or difficulty breathing",
+                    "Vision changes or confusion"
+                ],
+                "disclaimer": "High blood pressure often has no symptoms but can be dangerous."
+            },
+            "arthritis": {
+                "symptoms": ["arthritis", "joint pain", "stiff joints", "joint inflammation"],
+                "causes": ["autoimmune", "wear and tear", "injury", "genetics", "age"],
+                "remedies": [
+                    "Low-impact exercise",
+                    "Apply heat or cold packs",
+                    "Maintain healthy weight",
+                    "Use assistive devices",
+                    "Take anti-inflammatory medications"
+                ],
+                "warning_signs": [
+                    "Severe joint pain",
+                    "Joint swelling and redness",
+                    "Fever with joint pain",
+                    "Inability to move joint"
+                ],
+                "disclaimer": "Arthritis requires proper diagnosis and management."
+            },
+            "depression": {
+                "symptoms": ["depression", "sad", "hopeless", "no motivation", "lost interest"],
+                "causes": ["chemical imbalance", "genetics", "trauma", "stress", "medical conditions"],
+                "remedies": [
+                    "Seek professional counseling",
+                    "Exercise regularly",
+                    "Maintain social connections",
+                    "Practice mindfulness and meditation",
+                    "Consider antidepressant medication"
+                ],
+                "warning_signs": [
+                    "Thoughts of self-harm",
+                    "Extreme hopelessness",
+                    "Inability to function daily",
+                    "Withdrawal from all activities"
+                ],
+                "disclaimer": "Depression is a serious medical condition requiring professional help."
+            },
+            "anxiety": {
+                "symptoms": ["anxiety", "worried", "panic", "nervous", "anxious"],
+                "causes": ["stress", "genetics", "trauma", "medical conditions", "brain chemistry"],
+                "remedies": [
+                    "Practice deep breathing exercises",
+                    "Exercise regularly",
+                    "Limit caffeine and alcohol",
+                    "Get adequate sleep",
+                    "Consider therapy or counseling"
+                ],
+                "warning_signs": [
+                    "Panic attacks",
+                    "Anxiety interfering with daily life",
+                    "Physical symptoms like chest pain",
+                    "Avoidance of normal activities"
+                ],
+                "disclaimer": "Severe anxiety may require professional medical treatment."
+            },
+            "skin_rash": {
+                "symptoms": ["skin rash", "rash", "itchy skin", "red spots", "skin irritation"],
+                "causes": ["allergies", "infections", "autoimmune", "medications", "environment"],
+                "remedies": [
+                    "Apply cool compress",
+                    "Use over-the-counter hydrocortisone cream",
+                    "Take oatmeal baths",
+                    "Avoid scratching",
+                    "Use fragrance-free moisturizers"
+                ],
+                "warning_signs": [
+                    "Rash spreading rapidly",
+                    "Rash with fever",
+                    "Blisters or open sores",
+                    "Rash covering large body area"
+                ],
+                "disclaimer": "Persistent or severe rashes require medical evaluation."
+            },
+            "allergies": {
+                "symptoms": ["allergies", "allergic reaction", "sneezing", "runny nose", "itchy eyes"],
+                "causes": ["pollen", "dust", "pet dander", "food", "medications"],
+                "remedies": [
+                    "Avoid known allergens",
+                    "Take antihistamines",
+                    "Use nasal sprays",
+                    "Keep windows closed during high pollen",
+                    "Use air purifiers"
+                ],
+                "warning_signs": [
+                    "Difficulty breathing",
+                    "Swelling of face or throat",
+                    "Hives covering large areas",
+                    "Anaphylaxis symptoms"
+                ],
+                "disclaimer": "Severe allergic reactions require emergency medical care."
+            },
+            "insomnia": {
+                "symptoms": ["insomnia", "can't sleep", "sleep problems", "trouble sleeping"],
+                "causes": ["stress", "medical conditions", "medications", "poor sleep habits", "anxiety"],
+                "remedies": [
+                    "Maintain consistent sleep schedule",
+                    "Create relaxing bedtime routine",
+                    "Avoid screens before bed",
+                    "Keep bedroom cool and dark",
+                    "Avoid caffeine late in day"
+                ],
+                "warning_signs": [
+                    "Sleep problems lasting weeks",
+                    "Falling asleep during activities",
+                    "Sleep problems affecting work",
+                    "Dependence on sleep medications"
+                ],
+                "disclaimer": "Chronic insomnia may indicate underlying medical conditions."
+            },
+            "back_pain": {
+                "symptoms": ["back pain", "backache", "lower back pain", "spine pain"],
+                "causes": ["muscle strain", "herniated disc", "arthritis", "poor posture", "injury"],
+                "remedies": [
+                    "Apply ice or heat packs",
+                    "Gentle stretching exercises",
+                    "Maintain good posture",
+                    "Use proper lifting techniques",
+                    "Consider physical therapy"
+                ],
+                "warning_signs": [
+                    "Pain radiating down legs",
+                    "Numbness or weakness",
+                    "Pain after injury",
+                    "Pain with fever or chills"
+                ],
+                "disclaimer": "Severe or persistent back pain requires medical evaluation."
+            },
+            "eye_problems": {
+                "symptoms": ["eye pain", "vision problems", "blurry vision", "red eyes"],
+                "causes": ["eye strain", "infections", "injuries", "glaucoma", "cataracts"],
+                "remedies": [
+                    "Rest eyes regularly",
+                    "Use artificial tears",
+                    "Adjust screen brightness",
+                    "Take breaks from screens",
+                    "Wear sunglasses outdoors"
+                ],
+                "warning_signs": [
+                    "Sudden vision loss",
+                    "Severe eye pain",
+                    "Flashes of light or floaters",
+                    "Eye injury or trauma"
+                ],
+                "disclaimer": "Sudden vision changes require immediate medical attention."
+            },
+            "dizziness": {
+                "symptoms": ["dizziness", "vertigo", "lightheaded", "off balance"],
+                "causes": ["inner ear problems", "low blood pressure", "dehydration", "medications", "anxiety"],
+                "remedies": [
+                    "Sit or lie down immediately",
+                    "Drink water",
+                    "Avoid sudden movements",
+                    "Focus on a fixed point",
+                    "Get up slowly from sitting"
+                ],
+                "warning_signs": [
+                    "Dizziness with chest pain",
+                    "Fainting or loss of consciousness",
+                    "Severe headache with dizziness",
+                    "Difficulty speaking or walking"
+                ],
+                "disclaimer": "Persistent dizziness requires medical evaluation."
+            },
+            "nausea_vomiting": {
+                "symptoms": ["nausea", "vomiting", "queasy", "throw up", "upset stomach"],
+                "causes": ["food poisoning", "viral infection", "motion sickness", "pregnancy", "migraine"],
+                "remedies": [
+                    "Sip clear fluids slowly",
+                    "Eat bland foods",
+                    "Rest in upright position",
+                    "Try ginger or peppermint",
+                    "Avoid strong odors"
+                ],
+                "warning_signs": [
+                    "Vomiting blood",
+                    "Severe abdominal pain",
+                    "Signs of dehydration",
+                    "Vomiting lasting more than 24 hours"
+                ],
+                "disclaimer": "Persistent vomiting can lead to dehydration and requires medical care."
+            },
+            "leg_pain": {
+                "symptoms": ["leg pain", "leg ache", "sore legs", "painful legs", "leg discomfort"],
+                "causes": ["muscle strain", "overuse", "injury", "poor circulation", "nerve issues", "arthritis"],
+                "remedies": [
+                    "Rest and elevate legs",
+                    "Apply ice or heat packs",
+                    "Gentle stretching exercises",
+                    "Massage the affected area",
+                    "Take over-the-counter pain relievers"
+                ],
+                "warning_signs": [
+                    "Severe or sudden leg pain",
+                    "Pain with swelling or redness",
+                    "Inability to bear weight",
+                    "Pain after injury or trauma"
+                ],
+                "disclaimer": "Severe or persistent leg pain requires medical evaluation."
+            },
+            "hand_pain": {
+                "symptoms": ["hand pain", "hand ache", "sore hands", "painful hands", "hand discomfort"],
+                "causes": ["carpal tunnel", "arthritis", "overuse", "injury", "repetitive strain", "nerve compression"],
+                "remedies": [
+                    "Rest hands and wrists",
+                    "Apply ice to reduce swelling",
+                    "Do hand stretching exercises",
+                    "Use ergonomic equipment",
+                    "Take anti-inflammatory medications"
+                ],
+                "warning_signs": [
+                    "Severe hand pain",
+                    "Numbness or tingling",
+                    "Loss of grip strength",
+                    "Pain with swelling or deformity"
+                ],
+                "disclaimer": "Persistent hand pain may indicate underlying conditions requiring medical attention."
             }
         }
     
     def _load_symptom_keywords(self) -> Dict[str, List[str]]:
-        """Load symptom keyword mappings"""
+        """Load comprehensive symptom keyword mappings"""
         return {
-            "headache": ["headache", "head", "migraine", "pain in head", "throbbing"],
-            "fever": ["fever", "temperature", "hot", "chills", "sweating", "feverish"],
-            "cough": ["cough", "coughing", "chesty", "dry cough", "throat"],
+            "headache": ["headache", "head", "migraine", "pain in head", "throbbing", "headache pain"],
+            "fever": ["fever", "temperature", "hot", "chills", "sweating", "feverish", "high temp"],
+            "cough": ["cough", "coughing", "chesty", "dry cough", "throat", "persistent cough"],
             "stomach": ["stomach", "abdomen", "belly", "tummy", "gut", "digestive", "stomach ache", "stomach pain", "abdominal pain", "belly ache", "tummy pain"],
-            "pain": ["pain", "ache", "hurt", "sore", "discomfort", "uncomfortable"],
-            "fatigue": ["tired", "fatigue", "exhausted", "weak", "no energy", "sleepy"],
-            "nausea": ["nausea", "queasy", "sick", "vomit", "throw up", "upset stomach"]
+            "pain": ["pain", "ache", "hurt", "sore", "discomfort", "uncomfortable", "painful"],
+            "fatigue": ["tired", "fatigue", "exhausted", "weak", "no energy", "sleepy", "lethargic", "drained"],
+            "nausea": ["nausea", "queasy", "sick", "vomit", "throw up", "upset stomach", "nauseous"],
+            "chest": ["chest", "chest pain", "chest tightness", "heart", "cardiac", "chest discomfort"],
+            "breathing": ["breathing", "breath", "shortness of breath", "wheezing", "can't breathe", "difficulty breathing", "respiratory"],
+            "diabetes": ["diabetes", "blood sugar", "glucose", "thirsty", "frequent urination", "high blood sugar"],
+            "blood_pressure": ["blood pressure", "hypertension", "high blood pressure", "elevated blood pressure", "bp"],
+            "joint": ["joint", "joints", "arthritis", "joint pain", "stiff joints", "joint inflammation"],
+            "mental_health": ["depression", "depressed", "sad", "hopeless", "anxiety", "anxious", "panic", "worried", "mental health"],
+            "skin": ["skin", "rash", "itchy", "red spots", "skin irritation", "hives", "dermatitis"],
+            "allergy": ["allergy", "allergies", "allergic", "sneezing", "runny nose", "itchy eyes", "hay fever"],
+            "sleep": ["sleep", "insomnia", "can't sleep", "sleep problems", "trouble sleeping", "sleepless"],
+            "back": ["back", "back pain", "backache", "lower back", "spine", "spinal"],
+            "leg": ["leg", "legs", "leg pain", "leg ache", "sore legs", "painful legs", "thigh", "calf", "shin"],
+            "hand": ["hand", "hands", "hand pain", "hand ache", "sore hands", "painful hands", "wrist", "fingers", "palm"],
+            "eye": ["eye", "eyes", "vision", "blurry vision", "eye pain", "red eyes", "sight"],
+            "dizziness": ["dizzy", "dizziness", "vertigo", "lightheaded", "off balance", "unsteady"],
+            "vomiting": ["vomiting", "vomit", "throwing up", "emesis", "puking"]
         }
     
     def _load_condition_patterns(self) -> Dict[str, List[str]]:
-        """Load condition recognition patterns"""
+        """Load comprehensive condition recognition patterns"""
         return {
             "emergency": [
                 "chest pain", "difficulty breathing", "severe pain", "bleeding",
-                "unconscious", "confusion", "stroke", "heart attack"
+                "unconscious", "confusion", "stroke", "heart attack", "suicidal",
+                "can't breathe", "severe bleeding", "loss of consciousness"
             ],
             "urgent": [
                 "high fever", "persistent vomiting", "severe headache", "broken bone",
-                "deep wound", "poisoning", "allergic reaction"
+                "deep wound", "poisoning", "allergic reaction", "severe abdominal pain",
+                "difficulty speaking", "vision loss", "numbness", "weakness"
             ],
             "general": [
-                "cold", "flu", "headache", "stomach ache", "minor pain", "fatigue"
+                "cold", "flu", "headache", "stomach ache", "minor pain", "fatigue",
+                "mild fever", "cough", "sore throat", "insomnia", "stress", "anxiety"
             ]
         }
     
@@ -154,6 +460,43 @@ class MedicalAI:
                 if keyword in user_input:
                     found_symptoms.append(symptom)
                     break
+        
+        # Check for combined symptoms
+        if 'stomach' in found_symptoms and 'pain' in found_symptoms:
+            found_symptoms.append('stomach_pain')
+        if 'chest' in found_symptoms and 'pain' in found_symptoms:
+            found_symptoms.append('chest_pain')
+        if 'breathing' in found_symptoms:
+            found_symptoms.append('breathing_difficulty')
+        if 'nausea' in found_symptoms or 'vomiting' in found_symptoms:
+            found_symptoms.append('nausea_vomiting')
+        if 'mental_health' in found_symptoms:
+            if 'depression' in user_input or 'sad' in user_input or 'hopeless' in user_input:
+                found_symptoms.append('depression')
+            if 'anxiety' in user_input or 'anxious' in user_input or 'panic' in user_input:
+                found_symptoms.append('anxiety')
+        if 'joint' in found_symptoms:
+            found_symptoms.append('arthritis')
+        if 'skin' in found_symptoms:
+            found_symptoms.append('skin_rash')
+        if 'allergy' in found_symptoms:
+            found_symptoms.append('allergies')
+        if 'sleep' in found_symptoms:
+            found_symptoms.append('insomnia')
+        if 'back' in found_symptoms:
+            found_symptoms.append('back_pain')
+        if 'leg' in found_symptoms:
+            found_symptoms.append('leg_pain')
+        if 'hand' in found_symptoms:
+            found_symptoms.append('hand_pain')
+        if 'eye' in found_symptoms:
+            found_symptoms.append('eye_problems')
+        if 'dizziness' in found_symptoms:
+            found_symptoms.append('dizziness')
+        if 'diabetes' in found_symptoms:
+            found_symptoms.append('diabetes')
+        if 'blood_pressure' in found_symptoms:
+            found_symptoms.append('hypertension')
         
         return list(set(found_symptoms))  # Remove duplicates
     
@@ -199,19 +542,44 @@ class MedicalAI:
         
         responses = []
         for symptom in symptoms:
-            # Check for combined symptoms (like stomach + pain = stomach_pain)
-            combined_symptom = None
-            if 'stomach' in symptoms and 'pain' in symptoms:
-                combined_symptom = 'stomach_pain'
-            elif 'headache' in symptoms or 'head' in symptoms:
-                combined_symptom = 'headache'
+            # Direct mapping for specific conditions
+            target_symptom = symptom
             
-            # Use combined symptom if available, otherwise use individual symptom
-            target_symptom = combined_symptom if combined_symptom and combined_symptom in self.knowledge_base else symptom
+            # Map combined symptoms to proper knowledge base entries
+            symptom_mapping = {
+                'stomach_pain': 'stomach_pain',
+                'chest_pain': 'chest_pain', 
+                'breathing_difficulty': 'breathing_difficulty',
+                'nausea_vomiting': 'nausea_vomiting',
+                'depression': 'depression',
+                'anxiety': 'anxiety',
+                'arthritis': 'arthritis',
+                'skin_rash': 'skin_rash',
+                'allergies': 'allergies',
+                'insomnia': 'insomnia',
+                'back_pain': 'back_pain',
+                'leg_pain': 'leg_pain',
+                'hand_pain': 'hand_pain',
+                'eye_problems': 'eye_problems',
+                'dizziness': 'dizziness',
+                'diabetes': 'diabetes',
+                'hypertension': 'hypertension'
+            }
+            
+            if symptom in symptom_mapping:
+                target_symptom = symptom_mapping[symptom]
+            elif symptom == 'headache' or symptom == 'head':
+                target_symptom = 'headache'
+            elif symptom == 'fever':
+                target_symptom = 'fever'
+            elif symptom == 'cough':
+                target_symptom = 'cough'
+            elif symptom == 'fatigue' or symptom == 'tired':
+                target_symptom = 'fatigue'
             
             if target_symptom in self.knowledge_base:
                 info = self.knowledge_base[target_symptom]
-                response = f"<strong>{symptom.title()} Management:</strong>\n\n"
+                response = f"<strong>{target_symptom.replace('_', ' ').title()} Management:</strong>\n\n"
                 
                 response += "<strong>• What might help:</strong>\n"
                 for remedy in info["remedies"][:3]:  # Limit to top 3 remedies
@@ -253,7 +621,23 @@ class MedicalAI:
     def process_query(self, user_input: str) -> str:
         """Main method to process user queries"""
         # Clean and preprocess input
-        user_input = user_input.strip()
+        user_input = user_input.strip().lower()
+        
+        # Check for AI identity questions
+        identity_patterns = [
+            "who are you", "what are you", "what is your name", 
+            "are you human", "are you a bot", "are you an ai",
+            "your identity", "introduce yourself", "tell me about yourself"
+        ]
+        
+        for pattern in identity_patterns:
+            if pattern in user_input:
+                return self._ai_identity_response()
+        
+        # Check for diagnostic test visualization requests
+        if "diagnostic test" in user_input or "test report" in user_input or "lab results" in user_input:
+            if "graph" in user_input or "chart" in user_input or "visualization" in user_input:
+                return self._diagnostic_test_response()
         
         # Assess urgency
         urgency = self._assess_urgency(user_input)
@@ -265,6 +649,35 @@ class MedicalAI:
         response = self._generate_response(symptoms, urgency)
         
         return response
+    
+    def _ai_identity_response(self) -> str:
+        """Generate AI identity response"""
+        return ("🤖 **I am Medico AI, your intelligent health assistant**\n\n"
+                "I am an artificial intelligence designed to provide general health information and guidance. "
+                "I can help you understand various health conditions, symptoms, and provide general wellness advice.\n\n"
+                "**What I can do:**\n"
+                "• Provide information about common health conditions\n"
+                "• Suggest general remedies for mild symptoms\n"
+                "• Help you understand when to seek medical care\n"
+                "• Offer preventive health tips\n\n"
+                "**Important:** I am not a substitute for professional medical advice. "
+                "Always consult with qualified healthcare professionals for diagnosis and treatment.\n\n"
+                "How can I help with your health questions today?")
+    
+    def _diagnostic_test_response(self) -> str:
+        """Generate diagnostic test visualization response"""
+        return ("📊 **Diagnostic Test Visualization**\n\n"
+                "I can help you understand your diagnostic test results through different visualization types:\n\n"
+                "**Available Chart Options:**\n"
+                "• **Line Graph** - Perfect for tracking trends over time (e.g., blood sugar levels, blood pressure)\n"
+                "• **Bar Graph** - Ideal for comparing different values (e.g., cholesterol levels, vitamin counts)\n"
+                "• **Pie Chart** - Best for showing proportions (e.g., blood cell distribution, risk factors)\n\n"
+                "**To get your test report visualized:**\n"
+                "1. Share your diagnostic test results\n"
+                "2. Specify which type of chart you prefer\n"
+                "3. Mention the time period if it's trend data\n\n"
+                "**Example:** 'Show my blood pressure trends as a line graph for the past 6 months'\n\n"
+                "Please share your test data and I'll create the appropriate visualization for you!")
 
 # Initialize the AI instance
 medical_ai = MedicalAI()
